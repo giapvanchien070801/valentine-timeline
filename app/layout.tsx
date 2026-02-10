@@ -16,6 +16,9 @@ const greatVibes = Great_Vibes({
 export const metadata: Metadata = {
   title: "Ngày Valentine Của Chiến & Hường",
   description: "Khoảnh khắc đáng nhớ, tình yêu vĩnh cửu",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

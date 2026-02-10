@@ -293,7 +293,7 @@ export default function Home() {
               variant="outlined"
               items={timelineItems.map((item) => ({
                 color: "#e91e63",
-                dot: (
+                icon: (
                   <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#f06292] bg-[#fce4ec] text-[#e91e63]">
                     <Icon name={item.icon} />
                   </span>
