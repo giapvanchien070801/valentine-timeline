@@ -258,7 +258,7 @@ export default function Home() {
           <h1 className="font-script text-4xl font-normal text-white drop-shadow md:text-6xl lg:text-7xl">
             Ngày Valentine Của Chiến & Hường
           </h1>
-          <p className="mt-3 text-lg text-white drop-shadow md:text-xl">
+          <p className="font-script mt-3 text-lg text-white drop-shadow md:text-xl">
             Khoảnh khắc đáng nhớ, tình yêu vĩnh cửu
           </p>
         </div>
