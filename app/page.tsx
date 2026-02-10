@@ -236,10 +236,10 @@ export default function Home() {
     <div className="min-h-screen bg-white text-[#171717]">
       {/* Top nav */}
       <header className="sticky top-0 z-20 flex items-center justify-between  px-6 py-4  font-normal font-script text-[#f06292]">
-        <span className="flex items-center gap-2 font-medium">
+        <span className="flex items-center gap-2 font-bold">
           <span className="text-[#f8b4c4]">♥</span> Tình Iu Ơi
         </span>
-        <span className="font-medium">Chiến & Hường</span>
+        <span className="font-bold">Chiến & Hường</span>
       </header>
 
       {/* Hero */}
