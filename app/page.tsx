@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { ConfigProvider, Timeline } from "antd";
 
 const timelineItems = [
   {
@@ -34,7 +37,7 @@ const timelineItems = [
   },
   {
     time: "13h30-14h30",
-    icon: "house",
+    icon: "rest",
     title: "Nghỉ ngơi tại phòng",
     description:
       "Về phòng nghỉ ngơi, thư giãn chuẩn bị cho buổi chiều vui chơi.",
@@ -42,14 +45,14 @@ const timelineItems = [
   },
   {
     time: "14h30-16h",
-    icon: "bath",
+    icon: "shower",
     title: "Tắm & Lên đồ",
     description: "Tắm rửa và chuẩn bị những bộ đồ thật đẹp để đi chơi.",
     side: "right",
   },
   {
     time: "16h-16h30",
-    icon: "car",
+    icon: "location",
     title: "Di chuyển đến Hồ Tây",
     description:
       "Cùng nhau di chuyển đến Hồ Tây, tận hưởng không khí trong lành ngày cận tết.",
@@ -65,7 +68,7 @@ const timelineItems = [
   },
   {
     time: "18h30-19h",
-    icon: "car",
+    icon: "taxi",
     title: "Di chuyển đi ăn tối",
     description: "Di chuyển đến địa điểm của bữa tối lãng mạn.",
     side: "left",
@@ -131,7 +134,7 @@ function Icon({ name }: { name: string }) {
           />
         </svg>
       );
-    case "house":
+    case "rest":
       return (
         <svg
           className={className}
@@ -143,11 +146,11 @@ function Icon({ name }: { name: string }) {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            d="M5 12h14M5 12a2 2 0 01-2-2V8a2 2 0 012-2h10a2 2 0 012 2v2a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
           />
         </svg>
       );
-    case "bath":
+    case "shower":
       return (
         <svg
           className={className}
@@ -159,7 +162,51 @@ function Icon({ name }: { name: string }) {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+            d="M5 6h14v1H5V6z M8 10v6m4-6v6m4-6v6"
+          />
+        </svg>
+      );
+    case "location":
+      return (
+        <svg
+          className={className}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      );
+    case "taxi":
+      return (
+        <svg
+          className={className}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M8 7v8a2 2 0 002 2h4a2 2 0 002-2V7m-8 0a2 2 0 012-2h2.586L15 4.586A2 2 0 0116.414 4H18a2 2 0 012 2v2M8 7h8"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M7 17v2m10-2v2"
           />
         </svg>
       );
@@ -179,22 +226,6 @@ function Icon({ name }: { name: string }) {
           />
         </svg>
       );
-    case "car":
-      return (
-        <svg
-          className={className}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-          />
-        </svg>
-      );
     default:
       return null;
   }
@@ -204,9 +235,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-[#171717]">
       {/* Top nav */}
-      <header className="sticky top-0 z-20 flex items-center justify-between bg-[#2d2d2d] px-6 py-4 text-white">
+      <header className="sticky top-0 z-20 flex items-center justify-between  px-6 py-4  font-normal font-script text-[#f06292]">
         <span className="flex items-center gap-2 font-medium">
-          <span className="text-[#f8b4c4]">♥</span> Tình Yêu Ơi
+          <span className="text-[#f8b4c4]">♥</span> Tình Iu Ơi
         </span>
         <span className="font-medium">Chiến & Hường</span>
       </header>
@@ -233,29 +264,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Timeline - Ant Design */}
       <section className="mx-auto max-w-5xl px-4 py-16 md:px-6">
         <h2 className="font-script text-center text-4xl text-black md:text-5xl">
           Lịch Trình Ngày Đặc Biệt
         </h2>
         <div className="mx-auto mt-2 h-0.5 w-24 bg-[#f8b4c4]" aria-hidden />
 
-        <div className="mt-12 grid gap-x-6 gap-y-8 md:grid-cols-2 md:gap-x-10">
-          <div className="flex flex-col gap-8">
-            {timelineItems
-              .filter((_, i) => i % 2 === 0)
-              .map((item, i) => (
-                <div
-                  key={item.time + i}
-                  className="flex rounded-2xl bg-[#f5f5f5] p-5 shadow-md transition hover:shadow-lg"
-                >
-                  <div className="flex flex-1 flex-col">
-                    <div className="mb-3 flex items-center gap-2">
-                      <Icon name={item.icon} />
-                      <span className="rounded-lg bg-[#f06292] px-2.5 py-1 text-sm font-medium text-white">
-                        {item.time}
-                      </span>
-                    </div>
+        <ConfigProvider
+          theme={{
+            components: {
+              Timeline: {
+                dotBg: "#fff",
+                tailColor: "rgba(240, 98, 146, 0.35)",
+                dotBorderWidth: 2,
+                itemPaddingBottom: 28,
+              },
+            },
+            token: {
+              colorPrimary: "#e91e63",
+              colorPrimaryBorder: "#f06292",
+            },
+          }}
+        >
+          <div className="mt-12">
+            <Timeline
+              mode="alternate"
+              variant="outlined"
+              items={timelineItems.map((item) => ({
+                color: "#e91e63",
+                dot: (
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#f06292] bg-[#fce4ec] text-[#e91e63]">
+                    <Icon name={item.icon} />
+                  </span>
+                ),
+                title: (
+                  <span className="rounded-lg bg-[#f06292] px-2.5 py-1 text-sm font-medium text-white">
+                    {item.time}
+                  </span>
+                ),
+                placement: item.side === "left" ? "start" : "end",
+                content: (
+                  <div className="rounded-2xl border border-[#f8b4c4]/40 bg-[#faf5f7] p-5 shadow-sm transition hover:shadow-md">
                     <h3 className="mb-2 font-semibold text-black">
                       {item.title}
                     </h3>
@@ -263,35 +313,11 @@ export default function Home() {
                       {item.description}
                     </p>
                   </div>
-                </div>
-              ))}
+                ),
+              }))}
+            />
           </div>
-          <div className="mt-0 flex flex-col gap-8 md:mt-16">
-            {timelineItems
-              .filter((_, i) => i % 2 === 1)
-              .map((item, i) => (
-                <div
-                  key={item.time + i}
-                  className="flex rounded-2xl bg-[#f5f5f5] p-5 shadow-md transition hover:shadow-lg"
-                >
-                  <div className="flex flex-1 flex-col">
-                    <div className="mb-3 flex items-center gap-2">
-                      <Icon name={item.icon} />
-                      <span className="rounded-lg bg-[#f06292] px-2.5 py-1 text-sm font-medium text-white">
-                        {item.time}
-                      </span>
-                    </div>
-                    <h3 className="mb-2 font-semibold text-black">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-[#374151]">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-          </div>
-        </div>
+        </ConfigProvider>
       </section>
 
       {/* Message */}
