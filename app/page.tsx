@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ConfigProvider, Timeline } from "antd";
+import FloatingBubbles from "@/components/FloatingBubbles";
 
 const timelineItems = [
   {
@@ -234,6 +235,7 @@ function Icon({ name }: { name: string }) {
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-[#171717]">
+      <FloatingBubbles />
       {/* Top nav */}
       <header className="sticky top-0 z-20 flex items-center justify-between  px-6 py-4  font-normal font-script text-[#f06292]">
         <span className="flex items-center gap-2 font-bold">
